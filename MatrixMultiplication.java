@@ -1,6 +1,6 @@
 package com.company;
 import java.util.Arrays;
-import java.util.Scanner;
+
 
 public class MatrixMultiplication {
 
@@ -8,10 +8,10 @@ public class MatrixMultiplication {
         int[][] A = {{1992, 1969}, {1921, 200324}, {2124, 2374121}, {700, 221}, {0, 0}, {7211, 392}};
         int[][] B = {{1, 23, 32}, {10, 6, 0}};
 
-        MatricesMultiplication(A,B);
+        System.out.println(Arrays.deepToString(MatricesMultiplication(A,B)));
 
     }
-    static void MatricesMultiplication(int[][] A, int[][] B)
+    static int[][] MatricesMultiplication(int[][] A, int[][] B)
     {
         int tempint = 0;
         try {
@@ -35,11 +35,13 @@ public class MatrixMultiplication {
                     C[j][k] = tempint;
                 }
             }
-            System.out.println(Arrays.deepToString(C));
+            return C;
         }
         catch(ArrayIndexOutOfBoundsException e)
         {
+            int[][] TheresAGlitchInTheMatrix = {{0}};
             System.out.println("Theres probably an issue with your matrices' dimensions! Make sure that matrix 1's column count lines up with matrix 2's row count!:D");
+            return TheresAGlitchInTheMatrix;
         }
     }
 }
